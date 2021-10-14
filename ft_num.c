@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_num.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdzamari <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/14 11:53:34 by sdzamari          #+#    #+#             */
+/*   Updated: 2021/10/14 12:30:51 by sdzamari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	count_digits(unsigned int nb)
@@ -33,20 +45,20 @@ static char	*unsint_to_str(unsigned int nb)
 
 void	ft_integer(t_hold *arguments)
 {
-	char	*nb_str;
+	char	str;
 
-	nb_str = ft_itoa(va_arg(arguments->arg, int));
-	ft_putstr_fd(nb_str, 1);
-	arguments->count += ft_strlen(nb_str);
-	free(nb_str);
+	str = ft_itoa(va_arg(arguments->arg, int));
+	ft_putstr_fd(str, 1);
+	arguments->count += ft_strlen(str);
+	free(str);
 }
 
 void	ft_unsignedint(t_hold *arguments)
 {
-	char	*nb_str;
+	char	*str;
 
 	nb_str = unsint_to_str(va_arg(arguments->arg, unsigned int));
-	ft_putstr_fd(nb_str, 1);
-	arguments->count += ft_strlen(nb_str);
-	free(nb_str);
+	ft_putstr_fd(str, 1);
+	arguments->count += ft_strlen(str);
+	free(str);
 }
