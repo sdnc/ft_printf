@@ -35,9 +35,9 @@ static char	*unsint_to_str(unsigned int nb)
 	if (!ret)
 		return (NULL);
 	ret[len] = '\0';
-	while (--len > 0) /* --len instead of len - 1 & len-- nside loop?*/
+	while (len > 0)
 	{
-		ret[len] = nb % 10 + '0';
+		ret[--len] = nb % 10 + '0';
 		nb /= 10;
 	}
 	return (ret);

@@ -19,7 +19,7 @@ static char	*ft_addresslength(unsigned long nb, int *i)
 	while (nb >= 16)
 	{
 		nb /= 16;
-		*i++;
+		*i += 1;
 	}
 	ptr = (char *)malloc((*i + 1) * sizeof(char));
 	if (!ptr)
@@ -34,7 +34,7 @@ void	ft_hex(t_hold *pointers, char c)
 	int				i;
 	char			*str;
 
-	n = va_arg(pointers->arg, unsigned int);
+	n = va_arg(pointers->arg, unsigned long);
 	i = 1;
 	str = ft_addresslength(n, &i);
 	i--;
@@ -46,6 +46,9 @@ void	ft_hex(t_hold *pointers, char c)
 			str[i] = 'a' - 10 + (n % 16);
 		else
 			str[i] = 'A' - 10 + (n % 16);
+		n /= 16;
+		i--;
+		pointers->count++;
 	}
 	ft_putstr_fd(str, 1);
 	free(str);
