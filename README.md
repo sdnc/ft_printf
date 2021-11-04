@@ -92,9 +92,7 @@ double average ( int num, ... )
     } // va_arg expects va_list & data type
     va_end ( arguments );   // Cleans up the list
  
-    return sum / num;  
-
-    Example by [Allain](https://www.cprogramming.com/tutorial/c/lesson17.html)                   
+    return sum / num;                    
 }
  
 int main()
@@ -104,6 +102,8 @@ int main()
     // here it computes the average of the 5 values 3.3, 2.2, 1.1, 5.5 and 3.3
     printf( "%f\n", average ( 5, 3.3, 2.2, 1.1, 5.5, 3.3 ) );
 ```
+
+Example by [Allain](https://www.cprogramming.com/tutorial/c/lesson17.html) 
 
 </details>
 
