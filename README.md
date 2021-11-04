@@ -101,8 +101,8 @@ int main()
     printf( "%f\n", average ( 3, 12.2, 22.3, 4.5 ) );
     /* here it computes the average of the 5 values 3.3, 2.2, 1.1, 5.5 and 3.3 */
     printf( "%f\n", average ( 5, 3.3, 2.2, 1.1, 5.5, 3.3 ) );
-    
-```
+
+´´´
 </details>
 
 ### Prerequisites
