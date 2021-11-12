@@ -5,7 +5,6 @@
 - [About](#about)
 - [Concepts](#concepts)
 - [Pseudo Code](#pseudo)
-- [Contributing](../CONTRIBUTING.md)
 
 ## About <a name = "about"></a>
 
@@ -19,7 +18,7 @@ Write about 1-2 paragraphs describing the purpose of your project.
 
 ### ⚙️ *Parameters*
 
-- **const char ***: The string to be printed
+- const char *: The string to be printed
 - **...**: arbitrary number of arguments
 
 ### ◀️ *Return value*
@@ -29,6 +28,7 @@ Returns an integer that represents the number of characters in the printed strin
 - Must recode the *libc's* *printf* function and it will be compared to real one
 - It must not do the buffer management like the real *printf*
 - Must use the command **ar** to create the library (libtool is forbidden)
+- Libft library is allowed
 
 Must manage the following conversions: **cspdiuxX%**
 
@@ -48,7 +48,8 @@ Must manage the following conversions: **cspdiuxX%**
 
 **%X** prints a number in hexadecimal (base 16) - uppercase
 
-**%%** prints a percent sign
+**%%** prints a percentage sign
+
 
 ## Concepts <a name = "concepts"></a>
 
@@ -63,7 +64,7 @@ This library is used to allow functions to accept an indefinite number of argume
 
 **Stdarg Macros:**
 
-- *va_start:* start iterating arguments with a va_list
+- *va_start:* start iterating arguments with a va_list. va_start expects a va_list & the last required argument
 - *va_arg*: retrieve an argument. Expects a va_list & data type as input. Type must be self-promoting (no chars, shorts or floats).
 - *va_end*: free a va_list
 - *va_copy*: copy contents of one va_list to another
@@ -107,34 +108,9 @@ Example by [Allain](https://www.cprogramming.com/tutorial/c/lesson17.html)
 
 </details>
 
-### Prerequisites
-
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## Concepts <a name = "concepts"></a>
 
 Add notes about how to use the system.
 
 ## Pseudo Code <a name = "pseudo"></a>
+
+This function 
