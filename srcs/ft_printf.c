@@ -9,7 +9,6 @@
 /*   Updated: 2021/10/07 15:46:38 by sdzamari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* Using va_list directly instead of arguments pointer to t_hold in any cases?*/
 #include "ft_printf.h"
 
 static void	ft_getflag(const char c, t_hold *arguments)
