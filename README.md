@@ -123,7 +123,10 @@ A struct is defined in ft_print.h called s_hold, it includes a va_list *arg* and
 ### ft_printf.c
 This file contains the main function plus two subfunction, respectively, ft_printf(), init_args(), and ft_getflag().
 
-```int  ft_printf(const char *str, ...)```
+```c
+int  ft_printf(const char *str, ...)
+```
+
 Three variables are defined in this function.
 ```c
     t_hold *arguments; //pointer to the struct
@@ -138,7 +141,10 @@ A while loop is defined while *str* is not nulled. This part of the function rea
 When *str* is nulled, the value of *count* is set to the value of the *count* variable in the t_hold struct. The va_list variable in the struct is terminated with va_end, and then the t_hold *arguments* list gets freed.
 The function returns *count* (the number of characters ft_printf() has printed). 
 
-```static t_hold init_args(void)```
+```c
+static t_hold init_args(void)
+```
+
 One variable is declared: 
 ```c
 t_hold *arguments;
@@ -146,5 +152,22 @@ t_hold *arguments;
 This functions purpose is to malloc the t_hold *arguments* with the size of the struct t_hold. It also sets the *count* variable in t_hold to 0 and then returns *arguments*. 
 
 
-```static void ft_getflag(const char c, t_hold *arguments)```
-This function takes the flag after the % in *ft_printf()* as input (*c*) and calls the corresponding function to print the datatype. The 
+```c
+static void ft_getflag(const char c, t_hold *arguments)
+```
+
+This function takes the flag after the % in *ft_printf()* as input (*c*) and calls the corresponding function to print the datatype. 
+
+## ft_char.c
+This file contains functions that will print chars and strings when the flag is respectively c and s.
+
+```c
+void    ft_char(t_hold *arguments)
+```
+
+This function uses *ft_putchar_fd()* from the libft library using va_arg to retireve the current argument from t_hold arguments->arg. Fd = 1. 
+The *count* in the t_hold is incremented.
+
+```c
+void    ft_string(t_hold *arguments)
+```
