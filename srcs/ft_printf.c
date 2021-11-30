@@ -61,10 +61,10 @@ The ellipsis notation in the ft_printf prototype implies that it accepts an unsp
 number of arguments. The *str, in this case, is the last required argument.
 
 The variable *arguments of type t_hold, is a pointer to a struct defined in the header file.
-The struct consists of a va_list (type from the stdarg library) and a counter (as ft_printf return the count of character in the final printed string).
+The struct consists of a va_list (type from the stdarg library) and a counter (as ft_printf return the total number of characters in the printed string).
 
 The t_hold struct arguments is initialized with init_args() and the va_list must be
-started and ended using the stdarg library macros. 
+started and ended using the stdarg library macros va_start & va_end. 
 
 The function returns and int that represents each character printed in the final string.
 The counter must be updated for each character printed of any type.
