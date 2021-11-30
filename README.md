@@ -112,3 +112,6 @@ int main()
 Example by [Allain](https://www.cprogramming.com/tutorial/c/lesson17.html) 
 
 </details>
+
+<br><br>
+<img width=140px height=70px src="https://static.wixstatic.com/media/745a58_841e3c76fb5941598a97d2fd9f23ea5c~mv2.png/v1/fill/w_918,h_508,al_c/745a58_841e3c76fb5941598a97d2fd9f23ea5c~mv2.png" alt="42 Adelaide logo"></a>
