@@ -12,6 +12,18 @@
 
 #include "ft_printf.h"
 
+/*
+
+The functions called by convert_type() must first retrieve the argument using the stdarg 
+library MACRO va_arg with the va_list and the type to retrieve.
+
+The counter must be updated.
+
+The arguments is then to be converted and printed.
+
+The functions must be free of memory leaks.
+
+*/
 static int	count_digits(unsigned int nb)
 {
 	int	count;
@@ -45,12 +57,12 @@ static char	*unsint_to_str(unsigned int nb)
 
 void	ft_integer(t_hold *arguments)
 {
-	char	*str;
+	char	*nbr_str;
 
-	str = ft_itoa(va_arg(arguments->arg, int));
-	ft_putstr_fd(str, 1);
-	arguments->count += ft_strlen(str);
-	free(str);
+	nbr_str = ft_itoa(va_arg(arguments->arg, int));
+	ft_putstr_fd(nbr_str, 1);
+	arguments->count += ft_strlen(nbr_str);
+	free(nbr_str);
 }
 
 void	ft_unsignedint(t_hold *arguments)

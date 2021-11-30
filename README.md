@@ -3,12 +3,12 @@
 ## Table of Contents
 
 - [About](#about)
-- [Concepts](#concepts)
-- [Pseudo Code](#pseudo)
+- [New concepts](#concepts)
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+Full subject here: 
+
 
 ### 💾 *Prototype*
 
@@ -54,6 +54,7 @@ Must manage the following conversions: **cspdiuxX%**
 ## Concepts <a name = "concepts"></a>
 
 ### Variadic functions
+
 **This project calls for using a new standard C library → *<stdarg.h>*** 
 
 This library is used to allow functions to accept an indefinite number of arguments. It facilitates stepping through a list of function arguments of unknown number and type. 
@@ -107,67 +108,3 @@ int main()
 Example by [Allain](https://www.cprogramming.com/tutorial/c/lesson17.html) 
 
 </details>
-
-## Pseudo Code <a name = "pseudo"></a>
-
-Printf consist of a srcs folder including four seperate function fails to run the main function, a library, a Makefile, and the all the includes of the Libft library. 
-
-The srcs folder function are:
-- ft_printf.c
-- ft_char.c
-- ft_num.c
-- ft_hex.c
-
-A struct is defined in ft_print.h called s_hold, it includes a va_list *arg* and an int *count* (which will be the final return of the printf function). The list type is accessed with t_hold.
-
-### ft_printf.c
-This file contains the main function plus two subfunction, respectively, ft_printf(), init_args(), and ft_getflag().
-
-```c
-int  ft_printf(const char *str, ...)
-```
-
-Three variables are defined in this function.
-```c
-    t_hold *arguments; //pointer to the struct
-    int     count;    
-    int     i;
-```
-arguments is initialized by calling *init_args()*. The other two integers are set to 0.
-*va_start()* is called with *arguments* pointing to the va_list variable *arg* (in the struct t_hold) and the last required parameter of ft_printf().
-
-A while loop is defined while *str* is not nulled. This part of the function reads and prints the caller's input. As long as the input is not a %, the current character is printed and the *count* in the struct is incremented. Then the index is incremented and next character is checked. If a % occurs, *ft_getflag()* is called with the character on the index after the said %. 
-
-When *str* is nulled, the value of *count* is set to the value of the *count* variable in the t_hold struct. The va_list variable in the struct is terminated with va_end, and then the t_hold *arguments* list gets freed.
-The function returns *count* (the number of characters ft_printf() has printed). 
-
-```c
-static t_hold init_args(void)
-```
-
-One variable is declared: 
-```c
-t_hold *arguments;
-```
-This functions purpose is to malloc the t_hold *arguments* with the size of the struct t_hold. It also sets the *count* variable in t_hold to 0 and then returns *arguments*. 
-
-
-```c
-static void ft_getflag(const char c, t_hold *arguments)
-```
-
-This function takes the flag after the % in *ft_printf()* as input (*c*) and calls the corresponding function to print the datatype. 
-
-## ft_char.c
-This file contains functions that will print chars and strings when the flag is respectively c and s.
-
-```c
-void    ft_char(t_hold *arguments)
-```
-
-This function uses *ft_putchar_fd()* from the libft library using va_arg to retireve the current argument from t_hold arguments->arg. Fd = 1. 
-The *count* in the t_hold is incremented.
-
-```c
-void    ft_string(t_hold *arguments)
-```

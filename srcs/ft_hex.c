@@ -12,7 +12,19 @@
 
 #include "ft_printf.h"
 
-static char	*ft_addresslength(unsigned long nb, int *i)
+/*
+
+The functions called by convert_type() must first retrieve the argument using the stdarg 
+library MACRO va_arg with the va_list and the type to retrieve.
+
+The counter must be updated.
+
+The arguments is then to be converted and printed.
+
+The functions must be free of memory leaks.
+
+*/
+static char	*malloc_addresslength(unsigned long nb, int *i)
 {
 	char	*ptr;
 
@@ -28,25 +40,26 @@ static char	*ft_addresslength(unsigned long nb, int *i)
 	return (ptr);
 }
 
+
 void	ft_hex(t_hold *pointers, char c)
 {
-	unsigned int	n;
+	unsigned int	address_nbr;
 	int				i;
 	char			*str;
 
-	n = va_arg(pointers->arg, unsigned long);
+	address_nbr = va_arg(pointers->arg, unsigned long);
 	i = 1;
-	str = ft_addresslength(n, &i);
+	str = malloc_addresslength(address_nbr, &i);
 	i--;
 	while (i >= 0)
 	{
-		if (n % 16 < 10)
-			str[i] = '0' + (n % 16);
+		if (address_nbr % 16 < 10)
+			str[i] = '0' + (address_nbr % 16);
 		else if (c == 'x')
-			str[i] = 'a' - 10 + (n % 16);
+			str[i] = 'a' - 10 + (address_nbr % 16);
 		else
-			str[i] = 'A' - 10 + (n % 16);
-		n /= 16;
+			str[i] = 'A' - 10 + (address_nbr % 16);
+		address_nbr /= 16;
 		i--;
 		pointers->count++;
 	}

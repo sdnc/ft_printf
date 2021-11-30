@@ -12,6 +12,18 @@
 
 #include "ft_printf.h"
 
+/*
+
+The functions called by convert_type() must first retrieve the argument using the stdarg 
+library MACRO va_arg with the va_list and the type to retrieve.
+
+The counter must be updated.
+
+The arguments is then to be converted and printed.
+
+The functions must be free of memory leaks.
+
+*/
 void	ft_char(t_hold *arguments)
 {
 	ft_putchar_fd(va_arg(arguments->arg, int), 1);

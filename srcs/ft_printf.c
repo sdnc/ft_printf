@@ -11,7 +11,13 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static void	ft_getflag(const char c, t_hold *arguments)
+/*
+
+This function receives the char found after the percentage sign (%) in the ft_printf function
+and calls the corresponding function to convert it to the right type and print it.
+
+*/
+static void	convert_type(const char c, t_hold *arguments)
 {
 	if (c == 'c')
 		ft_char(arguments);
@@ -32,6 +38,12 @@ static void	ft_getflag(const char c, t_hold *arguments)
 	}
 }
 
+/*
+
+The t_hold struct is initialized by allocation space in memory.
+The counter in the struct is initialized by being set to 0.
+
+*/
 static t_hold	*init_args(void)
 {
 	t_hold	*arguments;
@@ -43,6 +55,21 @@ static t_hold	*init_args(void)
 	return (arguments);
 }
 
+/* 
+
+The ellipsis notation in the ft_printf prototype implies that it accepts an unspecified 
+number of arguments. The *str, in this case, is the last required argument.
+
+The variable *arguments of type t_hold, is a pointer to a struct defined in the header file.
+The struct consists of a va_list (type from the stdarg library) and a counter (as ft_printf return the count of character in the final printed string).
+
+The t_hold struct arguments is initialized with init_args() and the va_list must be
+started and ended using the stdarg library macros. 
+
+The function returns and int that represents each character printed in the final string.
+The counter must be updated for each character printed of any type.
+
+*/
 int	ft_printf(const char *str, ...)
 {
 	t_hold	*arguments;
@@ -61,7 +88,7 @@ int	ft_printf(const char *str, ...)
 			arguments->count++;
 		}
 		else if (str[i] == '%')
-			ft_getflag(str[++i], arguments);
+			convert_type(str[++i], arguments);
 		i++;
 	}
 	count = arguments->count;
