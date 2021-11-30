@@ -3,7 +3,9 @@
 ## Table of Contents
 
 - [About](#about)
-- [New concepts](#concepts)
+- [Concepts](#concepts)
+
+
 
 ## About <a name = "about"></a>
 
@@ -49,6 +51,8 @@ Must manage the following conversions: **cspdiuxX%**
 **%X** prints a number in hexadecimal (base 16) - uppercase
 
 **%%** prints a percentage sign
+
+
 
 
 ## Concepts <a name = "concepts"></a>
