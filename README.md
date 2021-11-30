@@ -15,12 +15,12 @@
 ### 💾 *Prototype*
 
 ```c
-	int ft_printf(const char *, ...);
+	int ft_printf(const char *str, ...);
 ```
 
 ### ⚙️ *Parameters*
 
-- const char *: The string to be printed
+- const char *str: The string to be printed
 - **...**: arbitrary number of arguments
 
 ### ◀️ *Return value*
