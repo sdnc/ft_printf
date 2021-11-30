@@ -20,8 +20,8 @@
 
 ### ⚙️ *Parameters*
 
-- const char *str: The string to be printed
-- **...**: arbitrary number of arguments
+- const char *str:      The string to be printed
+- **...**:      arbitrary number of arguments
 
 ### ◀️ *Return value*
 
